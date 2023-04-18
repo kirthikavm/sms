@@ -1,0 +1,39 @@
+ <%- include('include/_header')%> 
+ <body>			
+	<div class="container">
+	<div class="table-wrapper">
+	<div class="table-title">
+	<div class="row">
+	<div class="col-sm-8"><h2 class="text">Question <b>Details</b></h2></div>
+	<div class="col-sm-4">
+		<a href="/search-question"><span class="btn btn-info add-new">Student</a><span></span>
+		<a href="/add-question"><span class="btn btn-info add-new"><i class="fa fa-plus"></i> Add New</a><span>
+	</div>
+	</div>
+	</div>
+	<table class="table table-bordered">
+	<thead>
+	<tr>
+	<th>Question Type</th>
+	<th>Status</th>
+	<th>Question Name</th>
+	<th>Actions</th>
+	</tr>
+	</thead>
+	<tbody>
+	<% for(var i=0;i<question.length;i++){%>
+	<tr>
+	<td><%= question[i].questiontype%></td>
+	<td><%= question[i].qstatus%></td>
+	<td><%= question[i].questionname%></td>
+	<td>	
+	<a class="edit" title="Edit" data-toggle="tooltip" href="/update-question?id=<%= question[i]._id%>"><i class="material-icons">&#xE254;</i></a>
+	<a class="delete" title="Delete" data-toggle="tooltip" data-id=<%= question[i]._id%>><i class="material-icons">&#xE872;</i></a>
+	</td>
+	</tr>
+	<%}%>
+	</tbody>
+	</table>
+	</div>	
+
+	<%include('include/_footer')%>

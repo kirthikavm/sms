@@ -1,0 +1,46 @@
+<%- include('include/_header')%> 
+<body>			
+   <div class="container">
+         <ul>
+            <% question.forEach((question)=> { %>
+                <li>
+                    <h2>
+                        <%= question.questionname%>
+                        <input type="hidden"  name="answerid" id="answerid" value="<%= question.answerid%>"> 
+                    </h2>
+                    <p>
+                        
+                        <% if(question.ansType=="Text") {%>
+                            <input type="hidden"  name="atype" id="atype" value="<%= question.ansType%>">
+                            <p> Answer : <input type="text"  name="txtans" id="txtans"></p>
+                        <% } %>  
+
+                        <% if(question.ansType=="YesOrNo") {%>
+                            <input type="hidden"  name="atype" id="atype" value="<%= question.ansType%>">
+                            <p>                           
+                               <div id="ansId">
+                                <INPUT TYPE="Radio" id="radio_1" name="option" value="Yes">Yes
+                                <INPUT TYPE="Radio" id="radio_2" name="option" value="No">No  
+                                </div>                       
+                            </p>
+                        <% } %>  
+                        
+                        <% if(question.ansType=="List") {%> 
+                            <input type="hidden"  name="atype" id="atype" value="<%= question.ansType%>">                           
+                            <p>
+                                <select id="list" name="list" multiple>
+                                <%var str_array = question.lstinput.split(',')  %>                            
+                                <% for(i = 0; i < str_array.length; i++) { %>                   
+                                    <option value="<%= str_array[i] %>"><%= str_array[i] %></option>
+                               <% }  %>
+                            </select>
+                            </p>
+                        <% } %> 
+                    </p>
+                    <a id="nxtId" class="btn btn-primary" >Next</a> 
+                </li>                     
+            <% }) %>
+        </ul>
+       </div>
+   <script src="/js/index.js"></script> 
+   <%include('include/_footer')%>

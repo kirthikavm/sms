@@ -1,0 +1,94 @@
+<%- include('include/_header')%>
+<body>			
+    <div class="container">
+        <a href="/">back</a>
+        <div class="text">Add Question</div>
+        <form action="api/question" method="POST" id="add_question">
+           <div class="form-row">
+              <div class="input-data">                 
+                 <label for="">Question Type</label>
+                 <div class="underline"></div>
+                 <div align="right"><select name="questiontype" id="questiontype">
+                  <option value="Select">Select</option>
+                  <option value="Computer">Computer</option>
+                  <option value="Science">Science</option>
+                </select></div>
+                <input type="hidden" name="id" value="">
+              </div>
+              <div class="input-data">                 
+                  <label for="">Status</label>
+                  <div align="right"><select name="qstatus" id="qstatus">
+                  <option value="Select">Select</option>
+                  <option value="Active">Active</option>
+                  <option value="Expired">Expired</option>
+                  </select>
+               </div>
+            </div>
+           </div>
+           <div class="form-row">
+              <div class="input-data">
+                 <input type="text"  name="questionname">
+                 <div class="underline"></div>
+                 <label for="">Question Name</label>
+              </div>
+              <div class="input-data">
+                 <input type="text"  name="shortdes">
+                 <div class="underline"></div>
+                 <label for="">Short Description</label>
+              </div>
+           </div>
+            <div class="form-row">
+               <div class="input-data">
+               <input type="text"  name="longquestion" id="longquestion">
+               <div class="underline"></div>
+               <label for="">Long Description</label>
+               </div>
+            </div>                
+           
+            <div align="left">Answer Type
+            <select name="atype" id="atype">
+            <option value="Select">Select</option>
+            <option value="Text">Text</option>
+            <option value="List">List</option>
+            <option value="YesOrNo">Yes/No</option>
+            </select></br>
+            <div class="form-row">
+               <div id="textId">
+                  Text Input
+                  <input type="text"  name="txtans" id="txtans">
+               </div>
+               <div id="listId">
+                  List Name :
+                  <input type="text"  name="lstinput" id="lstinput">
+                  <a id="btnAdd" class="btn btn-primary">Add</a><br><br> 
+                     <select id="list" name="list" multiple>
+                  </select>
+               </div>
+               <div id="optionId">
+                  <INPUT TYPE="Radio" id="radio_1" Name="yes" Value="yes" >YES
+                  <INPUT TYPE="Radio" id="radio_2" Name="no" Value="no">No
+               </div>
+         </div>
+         <div id="tagId">
+            Tag Name :
+            <input type="text"  name="tagname" id="tg0">
+            <a id="addTag" class="btn btn-primary">Add</a><br><br>              
+         </div>
+         <div class="form-row">
+            <div id="ansId">
+               Answer : 
+               <input type="text"  name="answerid" id="answerid">                        
+            </div>
+         </div>
+            <div class="form-row">
+              <div class="input-data textarea">
+                 <div class="form-row submit-btn">               
+                        <button type="submit" class="btn btn-primary me-2" >Submit</button>                 
+                 </div>
+              </div>
+           </div>
+        </form>
+     </div>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js" integrity="sha512-pumBsjNRGGqkPzKHndZMaAG+bir374sORyzM3uulLV14lN5LyykqNk8eEeUlUkB3U0M4FApyaHraT65ihJhDpQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+     <script src="/js/index.js"></script> 
+<%include('include/_footer')%>

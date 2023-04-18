@@ -1,0 +1,40 @@
+<%- include('include/_header')%> 
+<body>			
+   <div class="container">
+    <a href="/">back</a>
+   <div class="table-wrapper">
+   <div class="table-title">
+   <div class="row">   
+   <div class="mb-4 col-md-6"><h2 class="text">Question <b>Details</b></h2><br>
+   
+   <input type="text" name="searchtag" id="searchtag"/>
+
+    <a id="searchButton" class="btn btn-primary" href = "javascript:;" onclick = "this.href='/searchTag?tname=' + document.getElementById('searchtag').value">Search</a>
+   
+    <a id="testButton" class="btn btn-primary" >Start Test</a>
+ 
+   </div>
+   </div><br><br>
+   <table class="table table-bordered">
+   <thead>
+   <tr>
+   <th>Question Type</th>
+   <th>Status</th>
+   <th>Question Name</th>
+   <th>Short Description</th>      
+   </tr>
+   </thead>
+   <tbody>
+   <% for(var i=0;i<question.length;i++){%>
+   <tr>
+   <td><%= question[i].questiontype%></td>
+   <td><%= question[i].qstatus%></td>
+   <td><%= question[i].questionname%></td>
+   <td><%= question[i].shortdes%></td>
+   </tr>
+   <%}%>
+   </tbody>
+   </table>
+   </div>
+   <script src="/js/index.js"></script> 
+   <%include('include/_footer')%>

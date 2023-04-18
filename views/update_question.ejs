@@ -1,0 +1,106 @@
+<%- include('include/_header')%>
+<body>			
+    <div class="container">
+        <a href="/">back</a>
+        <div class="text">Update Question</div>
+        <form id="update_question" method="POST">
+           <div class="form-row">
+              <div class="input-data">                 
+                 <label for="">Question Type</label>
+                 <div class="underline"></div>
+                 <div align="right">
+                  <select name="questiontype" id="questiontype">
+                  <option value="Select" <%= questions.questiontype == 'Select' ? 'selected' : ''%>>Select</option>
+                  <option value="Computer"<%= questions.questiontype == 'Computer' ? 'selected' : ''%>>Computer</option>
+                  <option value="Science"<%= questions.questiontype == 'Science' ? 'selected' : ''%>>Science</option>
+                </select></div>
+                <input type="hidden" name="id" value="<%=questions._id%>" >
+              </div>
+              <div class="input-data">                 
+               <label for="">Status</label>
+               <div class="underline"></div>
+               <div align="right"><select name="qstatus" id="qstatus">
+                  <option value="Select"<%= questions.qstatus == 'Select' ? 'selected' : ''%>>Select</option>
+                <option value="Active"<%= questions.qstatus == 'Active' ? 'selected' : ''%>>Active</option>
+                <option value="Expired"<%= questions.qstatus == 'Expired' ? 'selected' : ''%>>Expired</option>
+              </select></div>
+            </div>
+           </div>
+           <div class="form-row">
+              <div class="input-data">
+                 <input type="text" value="<%=questions.questionname%>" name="questionname">
+                 <div class="underline"></div>
+                 <label for="">Question Name</label>
+              </div>
+              <div class="input-data">
+                 <input type="text" value="<%=questions.shortdes%>" name="shortdes">
+                 <div class="underline"></div>
+                 <label for="">Short Description</label>
+              </div>
+           </div>
+           <div class="form-row">
+            <div class="input-data">
+            <input type="text"  value="<%=questions.longquestion%>" name="longquestion" id="longquestion">
+            <div class="underline"></div>
+            <label for="">Long Description</label>
+            </div>
+         </div> 
+         <div>         
+        
+         <div align="left">Answer Type
+            <select name="atype" id="atype">
+               <option value="Select"<%= questions.ansType == 'Select' ? 'selected' : ''%>>Select</option>
+               <option value="Text"<%= questions.ansType == 'Text' ? 'selected' : ''%>>Text</option>
+               <option value="List"<%= questions.ansType == 'List' ? 'selected' : ''%>>List</option>
+               <option value="YesOrNo"<%= questions.ansType == 'YesOrNo' ? 'selected' : ''%>>YesOrNo</option>
+            </select></br>
+         
+        
+         <div class="form-row">
+            <div id="textId">
+               Text Input
+               <input type="text"  value="<%=questions.txtans%>" name="txtans" id="txtans">
+            </div>
+            <div id="listId">
+               <input type="hidden" id="lstinput1" value="<%=questions.lstinput%>">
+               List Name :
+               <input type="text"  name="lstinput" id="lstinput">
+               <a id="btnAdd">Add</a><br><br> 
+                <select id="list" name="list">
+                  <option value="Select">Select</option>
+                </select>
+            </div>
+            <div id="optionId">
+               <INPUT TYPE="Radio" id="radio_1" Name="yes" Value="yes"<%= questions.ansType == 'yes' ? 'checked' : ''%> >YES
+               <INPUT TYPE="Radio" id="radio_2" Name="no" Value="no"<%= questions.ansType == 'no' ? 'checked' : ''%>No
+            </div>
+      </div>
+   </div>      
+      <div id="tagId">
+         <input type="hidden" id="tgchk" value="<%=questions.tagname%>">
+         Tag Name :
+         <input type="text"   name="tagname" id="tg0">
+         <a id="addTag">+</a><br><br>              
+      </div>
+
+      
+      <div class="form-row">
+         <div id="ansId">
+            Answer : 
+            <input type="text"  value="<%=questions.answerid%>" name="answerid" id="answerid">                        
+         </div>
+      </div>
+
+
+         <div class="form-row">
+           <div class="input-data textarea">
+              <div class="form-row submit-btn">               
+                     <button type="submit" class="btn btn-primary me-2" >Submit</button>                 
+              </div>
+           </div>
+        </div>
+     </form>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js" integrity="sha512-pumBsjNRGGqkPzKHndZMaAG+bir374sORyzM3uulLV14lN5LyykqNk8eEeUlUkB3U0M4FApyaHraT65ihJhDpQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="/js/index.js"></script> 
+<%include('include/_footer')%>
